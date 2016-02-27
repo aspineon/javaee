@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Zarzadzaj</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF8" />
+	<style type="text/css">
+.center {
+	margin: auto;
+	width: auto;
+	border: 3px solid #73AD21;
+	padding: 10px;
+}
+</style>
+</h:head>
+<h:body>
+
+	
+		<h:form>
+		<div class="center">
+			<table>
+				<ui:repeat var="bsr" value="#{listToUpdate}">
+					<tr>
+						<td>Nazwa</td>
+						<td><h:outputLabel value="#{bsr.nazwa}" /></td>
+						<td>Ilosc</td>
+						<td><h:outputLabel value="#{bsr.ilosc}" /></td>
+						<td>Cena</td>
+						<td><h:outputLabel value="#{bsr.cena}" /></td>
+						<td>Kod</td>
+						<td><h:outputLabel value="#{bsr.kod}" /></td>
+						<td>Kategoria</td>
+						<td><h:outputLabel value="#{bsr.kategoria}" /></td>
+						<td><h:commandButton actionListener="#{admin.edytujTowar}"
+								value="Edytuj">
+								<f:attribute name="kod_edycji" value="#{bsr.kod}" />
+							</h:commandButton></td>
+					</tr>
+				</ui:repeat>
+			</table>
+			</div>
+			
+			<h:panelGroup layout="block" id="aktualizacja" styleClass="center" style="width: 80%;"
+				rendered="#{admin.edytujTowar}">
+				<table>
+					<tr>
+						<td>Nazwa</td>
+						<td><h:inputText value="#{admin.towarDoAktualizacji.nazwa}" /></td>
+						<td>Ilosc</td>
+						<td><h:inputText value="#{admin.towarDoAktualizacji.ilosc}" /></td>
+						<td>Cena</td>
+						<td><h:inputText value="#{admin.towarDoAktualizacji.cena}" /></td>
+						<td>Kod</td>
+						<td><h:inputText value="#{admin.towarDoAktualizacji.kod}" /></td>
+						<td>Kategoria</td>
+						<td><h:inputText
+								value="#{admin.towarDoAktualizacji.kategoria}" /></td>
+
+					</tr>
+					<tr>
+						<td><h:commandButton action="#{admin.aktualizujTowar}"
+								value="Zatwierdz" /></td>
+						<td><h:commandButton
+								action="#{admin.anuluj_AktualizacjeTowaru}" value="Anuluj" /></td>
+					</tr>
+				</table>
+			</h:panelGroup>
+			
+			<div class="center">
+			<h:commandButton action="#{admin.zapiszDane()}"
+				value="Zapisz dane do pliku xml" />
+			<h:messages />
+			</div>
+		</h:form>
+	
+</h:body>
+</html>
