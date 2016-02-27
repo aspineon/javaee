@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Towary>
+	<Towar>
+		<cena>2.0</cena>
+		<nazwa>Mleko</nazwa>
+		<kod>10000</kod>
+		<kategoria>Nabiał</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>4.0</cena>
+		<nazwa>Prima Cafe</nazwa>
+		<kod>10001</kod>
+		<kategoria>Kawa</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>3.0</cena>
+		<nazwa>Kasza Gryczana</nazwa>
+		<kod>10002</kod>
+		<kategoria>Kasze</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>2.0</cena>
+		<nazwa>Woda</nazwa>
+		<kod>10003</kod>
+		<kategoria>Napoje</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>10.0</cena>
+		<nazwa>Kielbasa 1Kg</nazwa>
+		<kod>10004</kod>
+		<kategoria>brak</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>0.50</cena>
+		<nazwa>Bułka Mała</nazwa>
+		<kod>10005</kod>
+		<kategoria>Pieczywo</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>15.0</cena>
+		<nazwa>Malboro</nazwa>
+		<kod>10006</kod>
+		<kategoria>Papierosy</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>3.0</cena>
+		<nazwa>Kubuś Mały</nazwa>
+		<kod>10007</kod>
+		<kategoria>Soki</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>1.50</cena>
+		<nazwa>Chleb Morski</nazwa>
+		<kod>10008</kod>
+		<kategoria>Pieczywo</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+	<Towar>
+		<cena>1.0</cena>
+		<nazwa>Danio</nazwa>
+		<kod>10009</kod>
+		<kategoria>Jogurty</kategoria>
+		<ilosc>100</ilosc>
+	</Towar>
+</Towary>

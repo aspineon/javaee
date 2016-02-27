@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+<h:head>
+	<title>Kup</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF8" />
+	<style type="text/css">
+	.center {margin: auto;width: 90%;border: 3px solid #73AD21;padding: 10px;margin: 20px;}
+</style>
+</h:head>
+<h:body>
+<div style="width: 100%;height: 400px;overflow-y: hidden;">
+<h:graphicImage value="resources/image/shopfoto.jpg"/>
+</div>
+<h:panelGroup layout="block" id="panel"  styleClass="center">
+	<h:messages errorClass="error" infoClass="info" globalOnly="true" />
+		<h:form>
+			<div style="float: left;width: 40%;">
+				<a4j:poll id="poll" interval="2000" enabled="true" render="poll,grid" />
+					<rich:dataTable id="grid" var="bsr" value="#{towary}">
+						<f:facet name="header">
+							<h:outputText value="Towary do kupna" />
+						</f:facet>
+						<rich:column>
+							<f:facet name="header">Kod</f:facet>
+							<h:outputText value="#{bsr.kod}" />
+							<f:facet name="footer">Kod</f:facet>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">Ilosc</f:facet>
+							<h:outputText value="#{bsr.ilosc}" />
+							<f:facet name="footer">Ilosc</f:facet>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">Cena</f:facet>
+							<h:outputText value="#{bsr.cena}" />
+							<f:facet name="footer">Cena</f:facet>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">Nazwa</f:facet>
+							<h:outputText value="#{bsr.nazwa}" />
+							<f:facet name="footer">Nazwa</f:facet>
+						</rich:column>
+
+						<rich:column>
+							<f:facet name="header">Kategoria</f:facet>
+							<h:outputText value="#{bsr.kategoria}" />
+							<f:facet name="footer">Kategoria</f:facet>
+						</rich:column>
+						<rich:column>
+							<f:facet name="header">Dodaj do koszyka</f:facet>
+							<h:commandButton actionListener="#{klient.dodaj_DoKoszyka}"
+								value="Dodaj">
+								<f:attribute name="kod_dodania" value="#{bsr.kod}" />
+							</h:commandButton>
+							<f:facet name="footer">Dodaj do koszyka</f:facet>
+						</rich:column>
+						<f:facet name="footer">
+							<h:outputText value="Zamawiaj towary" />
+						</f:facet>
+					</rich:dataTable>
+			</div>
+			<div style="float: right;width: 40%;">
+				<h1>Towary w koszyku</h1>
+				<table>
+					<ui:repeat var="bsr" value="#{towaryWKoszyku}">
+						<tr>
+							<td>Kod Produktu</td>
+							<td>#{bsr}</td>
+
+							<td><h:commandButton
+									actionListener="#{klient.usun_ZKoszyka}" value="Usun">
+									<f:attribute name="kod_usuniecia" value="#{bsr}" />
+								</h:commandButton></td>
+						</tr>
+					</ui:repeat>
+				</table>
+			
+			<h:commandButton action="#{klient.zrealizujZamowienie()}"
+				value="Zrealizuj zamowienie" />
+			</div>
+		</h:form>
+	</h:panelGroup>
+</h:body>
+</html>
