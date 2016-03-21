@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="/WEB-INF/templates/default.xhtml">
+	<ui:define name="content">
+		<div class="page-header">
+			<h2>#{msg['web.add.new.book']}</h2>
+		</div>
+		<div class="container">
+			<h:form id="form" styleClass="form-horizontal">
+						<div class="form-group">
+							<label class="col-sm-4 control-label">#{msg['web.author.forname']}</label>
+							<div class="col-sm-6">
+								<h:inputText id="forename" value="#{bookAdd.book.author.forename}" styleClass="#{component.valid?'field-valid':'field-invalid'} field">
+									<f:validator for="forename" validatorId="pit.kos.book.utils.ValidatorForname"></f:validator>
+								</h:inputText>
+								<h:message id="mforename" for="forename" style="color:red"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">#{msg['web.author.surname']}</label>
+							<div class="col-sm-6">
+								<h:inputText id="surname" value="#{bookAdd.book.author.surname}" styleClass="#{component.valid?'field-valid':'field-invalid'} field"/>
+								<h:message id="msurname" for="surname" style="color:red"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">#{msg['web.book.title']}</label>
+							<div class="col-sm-6">
+								<h:inputText id="title" value="#{bookAdd.book.title}" styleClass="#{component.valid?'field-valid':'field-invalid'} field"/>
+								<h:message id="mtitle" for="title" style="color:red"/>
+							</div>
+							
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label">#{msg['web.book.isbn']}</label>
+							<div class="col-sm-6">
+								<h:inputText id="isbn" value="#{bookAdd.book.isbn}" styleClass="#{component.valid?'field-valid':'field-invalid'} field"/>
+								<h:message id="misbn" for="isbn" style="color:red"/>
+							</div>
+						
+						</div>
+						<div class="form-group">
+							<div class="col-sm-12">
+							<h:commandButton action="#{bookAdd.addBook()}" value="#{msg['web.action.add.book']}" styleClass="form-control btn-success"  />
+							</div>
+						</div>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>

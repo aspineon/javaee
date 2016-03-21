@@ -1,0 +1,3 @@
+Sipmle aplication template.
+Aplication use Wildfly 8.2.0Final 
+
